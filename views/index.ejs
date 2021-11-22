@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>teamwork</title>
+    <meta
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+      name="viewport"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <section class="body">
+      <div class="container">
+        <div class="jumbotron mt-5">
+          <div class="d-flex flex-row justify-content-between p-2">
+            <h5 class="px-4">Clinics</h5>
+
+            <section id="search" class="search-wrap">
+                <p class="text-center">  Find A Clinic</p>
+                <form action="/clinics/search" class="form-inline">
+                  <i class="fa fa-search  m-1 "></i>
+                  <input type="search" class="form-control  mr-sm-2" name="filter" placeholder="UAB Hospital, Alaska, etc...">
+                  <input type="submit" class="btn btn-outline-success my-2 my-sm-0" value="Search">
+                </form>
+              </section>
+          </div>
+
+          <!-- all clinics -->
+          <div class="list-group">
+              <% 
+if (clinics.length==0) {
+    %>
+                <p class="text-center">No clinics found</p>
+                <%
+} else {
+    %>
+            
+              
+          <% clinics.forEach(clinic => { %>
+
+            <li class="list-group-item list-group-item-action">
+                Name:  <%= clinic.name %> 
+
+                <div>
+                   State Name:  <%= clinic.stateName %> 
+                  
+                </div>
+                <div>
+                   Availability:  <%= clinic.availability.from  %> - <%= clinic.availability.to  %>
+            <% }) %>
+            </li>
+            <% } %>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -2,15 +2,29 @@
   "name": "clinicprovider",
   "version": "1.0.0",
   "description": "clinic provider app",
+  "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "jest --runInBand test"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+  
   },
   "author": "jenny kibiri",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.16.4",
+    "@babel/preset-env": "^7.16.4",
+    "axios": "^0.24.0",
     "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "morgan": "^1.10.0"
+    "jest": "^27.3.1",
+    "morgan": "^1.10.0",
+    "supertest": "^6.1.6"
   }
 }
