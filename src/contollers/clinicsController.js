@@ -18,8 +18,11 @@ export async function searchClinics(req, res) {
 
   const filteredData = clinics.filter((clinic) => {
     for (let key in params) {
-   
-      return clinic["name"] == params[key] || clinic["stateName"] == params[key] || clinic['availability']==params[key];
+      return (
+        clinic["name"] == params[key] ||
+        clinic["stateName"] == params[key] ||
+        clinic["availability"] == params[key]
+      );
     }
   });
   res.status(200).json(filteredData);
